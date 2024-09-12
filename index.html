@@ -1,10 +1,440 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<style>
+    html {
+        overflow-y: scroll;
+    }
+
+    body {
+        max-width: 60vw;
+        padding: 0 10%;
+        padding-right: calc(100vw - 100%);
+    }
+
+    .footer {
+        background-color: #fff;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 8px;
+        text-align: left;
+    }
+
+    .modern-button {
+        border: 1px solid #000;
+        background-color: #fff;
+        color: #000;
+        padding: 1vw 2vw;
+        font-size: 1em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .modern-button:hover {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+    }
+
+    .sticky-div {
+        background-color: white;
+        position: sticky;
+        top: 0;
+        padding: 5px 0;
+    }
+
+    .project-container {
+        display: flex;
+        flex-direction: row;
+        gap: 5%;
+        padding: 5%;
+        border-bottom: 1px solid #d1d1d2;
+    }
+
+    .project-image {
+        max-width: 300px;
+        width: 30vw; /* 30% of the viewport width */
+        height: auto;
+        object-fit: contain;
+    }
+    
+    /* for interests */
+    .row {
+        display: flex;
+    }
+    .column {
+        flex: 1;
+        padding: 10px;
+    }
+    
+    /* for story */
+    .timeline {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .event {
+        flex: 1;
+        padding: 20px;
+        border-top: 2px solid #333;
+        text-align: center;
+    }
+    .event h3 {
+        font-size: 14px;
+        margin: 0;
+    }
+    .event p {
+        font-size: 12px;
+        margin: 10px 0;
+    }
+
+    @media (max-width: 700px) {
+        .project-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        .project-image {
+            width: 100vw;
+            margin-left: 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        body {
+            max-width: 80vw;
+            overflow-x: visible;
+        }
+
+        .timeline {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    }
+
+
+
+
+        
+
+</style>
+
 <head>
-    <title>Name</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Systems Engineer</title>
+    <script>
+        // Define constant strings
+        const NAME_TEXT = "Harishankar Prabhakaran";
+    </script>
 </head>
-<body>
-    <h1>Profile</h1>
-    <p>Mechanical Engineer</p>
+
+
+
+<body onload="showTab('myStory')">
+    <header>
+        <h2 id="name"></h2>
+    </header>
+
+    <div class="sticky-div">
+         <a href="mailto:harishankarprabhakaran@gmail.com" target="_blank">harishankarprabhakaran@gmail.com</a>
+        | <a href="http://linkedin.com/in/hspr3" target="_blank">linkedin.com/in/hspr3</a>
+        | <a href="https://github.com/hsprcode" target="_blank">github.com/hsprcode</a>
+        | <a href="Harishankar_Resume.pdf" target="_blank">RESUME</a>
+            <p></p>
+        <div style="display: flex; gap: 10px;">
+            <button id = "default" class="modern-button" onclick="showTab('myStory', this)">Story</button>
+            <button class="modern-button" onclick="showTab('Projects', this)">Projects</button>
+            <!-- <button class="modern-button" onclick="showTab('interests', this)">Interests</button> -->
+            <!-- <button class="modern-button" onclick="showTab('Resume', this)">Resume</button> -->
+        </div>
+    </div>
+
+    
+    <div id="myStoryContent" style="display: none;">
+        <h3></h3>
+        <p>Passionate engineer with a love for clean code and thoughtful design.</p>
+
+        <h3>The Timeline</h3>
+        <div class="timeline">
+            <div class="event"> 
+                <h3>initial events</h3>
+                <p>interest in biology, eventually went into chemistry, physics and math.</p>
+            </div>
+            <div class="event">
+                <h3>Mechanical Engineer - Prototype Development</h3>
+                <p>Wanted to build things on my own, created functional prototypes, and found interest in Control Systems</p>
+            </div>
+            <div class="event">
+                <h3>Graduate Researcher - Control Systems</h3>
+                <p>Dived deep into Control Systems Design, and understood applications in Robotics and beyond</p>
+            </div>
+            <div class="event">
+                <h3>Last three years - Systems Engineer</h3>
+                <p>Improved programming skills, designed and built entire system controllers, and improved technical skills.</p>
+            </div>
+            <div class="event">
+                <h3>*** Current space-time coordinate</h3>
+                <p>Need to work on autonomous machines with advanced control systems</p>
+            </div>
+            <p>||||||</p>
+            <div class="event">
+                <h3>into the Future</h3>
+                <p>Create self regulating Autonomous systems that can repair itself</p>
+            </div>
+            <p>|||||||||</p>
+            <div class="event">
+                <h3>The ultimate direction</h3>
+                <p>Hope to understand the world enough to be able to artificially create a system that is "almost" biological life</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="ProjectsContent" style="display: none;">
+        <h4>Index:</h4>
+        <nav>
+            <ol>
+                <li><a href="#project-1">Inverted cart-pendulum system with swinging up control</a></li>
+                <li><a href="#project0">A novel design for drive simulators</a></li>
+                <li><a href="#project1">Self-assembling structures using Multi-Robot System</a></li>
+                <li><a href="#project2">Modeling and Control of Lateral Vehicle Dynamics</a></li>
+                <li><a href="#project3">Interactive user interface for robotic arm dynamics and control</a></li>
+                <li><a href="#project4">Modeling and Simulation of Control Strategies: Spread of the Novel Coronavirus</a></li>
+                <li><a href="#project5">Audio Signal Classification using Convolutional Neural Networks</a></li>
+                <li><a href="#project6">Control-relevant system identification of a Dorr-Oliver lime mud reburning calciner</a></li>
+                <li><a href="#project7">Optimal Decentralized Structure for H∞ Full State Feedback Controllers</a></li>
+            </ol>
+        </nav>
+
+        <div>
+            <section id="project-1">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 400px;">
+                        <h3>Inverted cart-pendulum system with swinging up control</h3>
+                        <p>On system modelling and control</p>
+                        <p>Modelled linearized and non-linear dynamics of a cart-pendulum (inverted) system with swinging up capability. 
+                            Simulated it and compared different controller (LQR/LQE/LQG) implementation.<p>Used <pb>MATLAB and Simulink</pb></p>
+                        </p><br/>
+                    </div>
+                    <img class="project-image" src="img/a165_506.gif" alt="cart pendulum">
+                </div>
+            </section>
+
+            <section id="project0">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 400px;">
+                        <h3>A novel design for drive simulators</h3>
+                        <p>On manipulator design</p>
+                        <p>Created a 3D model of a 3-RRRS 6-DOF parallel manipulator with decoupled kinematics. 
+                            Reduced the total cost of manufacturing by at least 20% and increased the available workspace. 
+                            Machined individual parts from aluminum blocks in machine shop and assembled them in the laboratory.<p>Used <pb>Solidworks, PTC Creo, and MATLAB</pb></p>
+                        </p><br/>
+                
+                    </div>
+                    <img class="project-image" src="img/3rrrs.gif" alt="Parallel Manipulator">
+                </div>
+            </section>
+
+            <section id="project1">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 400px;">
+                        <h3>Self-assembling structures using Multi-Robot System</h3>
+                        <p>On multi-robot behaviour</p>
+                        <p>Developed and simulated a randomly scattered collective of robots with minimal lidar-like sensors, to self-assemble into any given connected shape with variable scale, using gradient information derived from the desired shape.</p>
+                        <p>This project was inspired by:</p> <p>Michael Rubenstein. Self-Assembly and Self-Healing for Robotic Collectives. PhD Dissertation, Dec 2009. </p>
+                        <p>Used <pb>MATLAB: Mobile Robotics Simulation Toolbox</pb>
+                        </p><br/>
+                    </div>
+                    <img class="project-image" src="img/self_assembly.gif" alt="self assembly">
+                </div>
+            </section>
+
+            <section id="project2">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 100%;">
+                        <h3>Modeling and Control of Lateral Vehicle Dynamics</h3>
+                        <p>On Self-driving vehicles</p>
+                        <p>Modelled lateral dynamics of a car with steering angle and differential braking as inputs; performed frequency analysis;
+                            and derived LQR, Kalman Filter, and H ∞ control for the lateral velocity and heading angle.<p>Used <pb>MATLAB: Control System Toolbox</pb></p>
+                        </p><br/>
+                    </div>
+                </div>
+            </section>
+    
+            <section id="project3">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 100%;">
+                        <h3>Interactive user interface for robotic arm dynamics and control</h3>
+                        <p>On industrial robot arm modelling</p>
+                        <p>Built an application from scratch to design serial manipulator dynamics and indirect force control through compliance and impedance control, with user-defined input parameters like link lengths and joint types.<p>Used <pb>MATLAB and App Designer</pb></p>
+                        </p><br/>
+                    </div>
+                </div>
+            </section>
+
+            <section id="project4">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 400px;">
+                        <h3>Modeling and Simulation of Control Strategies: Spread of the Novel Coronavirus</h3>
+                        <p>On compartmental system modelling and control</p>
+                        <p>Created a non-linear dynamical system model to define spread of SARS-CoV-2 and fit the model to the data. Evaluated the conditions to achieve global asymptotic stability of the system (disease free equilibrium). Simulated possible futures with model parameter uncertainties, and for different control strategies. 
+                        <p>medRxiv paper preprint: <a href="https://doi.org/10.1101/2020.05.11.20098418" target="_blank">doi.org/10.1101/2020.05.11.20098418</a></p>
+                        <p>Used <pb>MATLAB and LaTeX typesetting</pb></p>
+                        </p><br/>
+                    </div>
+                    <img class="project-image" src="img/covid.png" alt="Comp Mod">
+                </div>
+            </section>
+
+            <section id="project5">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 400px;">
+                        <h3>Audio Signal Classification using Convolutional Neural Networks</h3>
+                        <p>On deep neural networks</p>
+                        <p>Extracted features and classified GTZAN Music Dataset via Neural networks with reduced number of parameters. 
+                            Used significant feature functions (librosa package), amplitude data (1D-CNN), and Spectrogram (2D-CNN). Achieved a maximum of 81.62% classification accuracy using 1D-CNN.<p>Used <pb>Python: TensorFlow, PyTorch</pb></p>
+                        </p><br/>
+                    </div>
+                    <img class="project-image" src="img/1d_cnn.png" alt="Confusion Matrix">
+                </div>
+            </section>
+
+            <section id="project6">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 100%;">
+                        <h3>Control-relevant system identification of a Dorr-Oliver lime mud reburning calciner</h3>
+                        <p>On system identification</p>
+                        <p>Designed an experiment under open-loop “plant-friendly” conditions, using PRBS & multisine input signals, 
+                            to obtain a full-order model of the system satisfying classical validation criteria. 
+                            Fit restricted complexity ARX and Output Error models to open-loop data with prefilters and compared it. 
+                            Obtained a control-relevant ARX model by applying control-relevant preﬁltering on the full-order model identified.
+                            <p>Used <pb>MATLAB: System Identification Toolbox</pb></p>
+                        </p><br/>
+                    </div>
+                </div>
+            </section>
+
+            <section id="project7">
+                <br/><br/><br/>
+                <div class="project-container">
+                    <div style="max-width: 100%;">
+                        <h3>Optimal Decentralized Structure for H∞ Full State Feedback Controllers</h3>
+                        <p>On optimal controller design</p>
+                        <p>Formulated a methodology to find an optimal block diagonal matrix structure for the controllers, 
+                            allowing the control to be decentralized. 
+                            Solved Linear Matrix Inequalities as a Convex Optimization Problem.
+                            <p>Used <pb>MATLAB: YALMIP Toolbox & SeDuMi Solver</pb></p>
+                        </p><br/>
+                
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <div id="interestsContent" style="display: none;">
+        <h3>row1</h3>
+        <div class="row">
+            <div class="column">
+                <a href="your-link-url-1">
+                    <img src="thumbnail-image-url-1" alt="Thumbnail 1" width="100" height="100">
+                </a>
+            </div>
+            <div class="column">
+                <a href="your-link-url-2">
+                    <img src="thumbnail-image-url-2" alt="Thumbnail 2" width="100" height="100">
+                </a>
+            </div>
+            <div class="column">
+                <a href="your-link-url-3">
+                    <img src="thumbnail-image-url-3" alt="Thumbnail 3" width="100" height="100">
+                </a>
+            </div>
+        </div>
+        
+        <h3>row2</h3>
+        <div class="row">
+            <div class="column">
+                <a href="your-link-url-1">
+                    <img src="thumbnail-image-url-1" alt="Thumbnail 1" width="100" height="100">
+                </a>
+            </div>
+            <div class="column">
+                <a href="your-link-url-2">
+                    <img src="thumbnail-image-url-2" alt="Thumbnail 2" width="100" height="100">
+                </a>
+            </div>
+            <div class="column">
+                <a href="your-link-url-3">
+                    <img src="thumbnail-image-url-3" alt="Thumbnail 3" width="100" height="100">
+                </a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div id="ResumeContent" style="display: none;">
+        <h3>Click the link below, the resume will open in a new tab.</h3>
+        <a href="Harishankar_Resume.pdf" target="_blank">Resume pdf</a>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        function showTab(city, activeButton = "") {
+            const tabContents = document.querySelectorAll('[id$="Content"]');
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            document.getElementById(city + 'Content').style.display = 'block'
+            window.scrollTo(0, 0);
+
+
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.style.backgroundColor = 'initial';
+                button.style.textDecoration = "initial";
+            });
+
+            var defaultButton = document.getElementById("default");
+            if (activeButton == "") {
+                activeButton = defaultButton;
+            }
+            activeButton.style.backgroundColor = "#eee";
+            activeButton.style.textDecoration = "underline silver 2px";
+        }
+        // Use the constant strings in HTML
+        document.getElementById('name').textContent = NAME_TEXT;
+    </script>
+    
+    <footer class="footer">
+        © 2024 hsprcode. All rights reserved.
+    </footer>
+
 </body>
 </html>
